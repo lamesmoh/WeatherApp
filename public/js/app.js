@@ -10,12 +10,12 @@ const form = document.querySelector('form')
     form.addEventListener('submit',(e)=>{
         e.preventDefault()
         const o =Address.value
-    
+        console.log(o)
      
     messageOne.textContent='loading ...'
     messageTwo.textContent=''
 
-    fetch('http://localhost:3000/weather?address='+o).then((response)=>{
+    fetch('http://localhost:3000/weather?address='+ encodeURIComponent(o)).then((response)=>{
     response.json().then((data)=>{
     if(data.error){
         messageOne.textContent=data.error

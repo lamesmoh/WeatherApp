@@ -1,9 +1,9 @@
 const hbs = require('hbs')
 const express = require('express')
 const path = require('path')
-const lames = require('./utils/gecode')
-const ahmed = require('./utils/forecast')
 const gecode = require('./utils/gecode')
+const forecast = require('./utils/forecast')
+
 
 const app = express()
 
@@ -57,11 +57,12 @@ app.get('/weather',(req, res)=>{                                       //endpoin
 if(!req.query.address){
    return res.send({error:'please provide adress'})
 }
-  gecode(req.query.address, (error, {latitudes, longitudes}={})=>{
+  gecode(req.query.address, (error,{latitude, longitude})=>{
    if(error){
        return res.send(error)
    }
-   forecast(latitudes, longitudes, (error, data)=>{
+   
+   forecast(latitude, longitude, (error, data)=>{
          if (error){
            return res.send({error})
          }

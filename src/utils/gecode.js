@@ -17,8 +17,8 @@ const gecode =(address,callback)=>{
 
             callback(undefined, {
                 names:response.body.data[0].name,
-                latitudes:response.body.data[0].latitude,
-                longitudes:response.body.data[0].longitude})
+                latitude:response.body.data[0].latitude,
+                longitude:response.body.data[0].longitude})
         }
     })
 }
