@@ -15,7 +15,7 @@ const form = document.querySelector('form')
     messageOne.textContent='loading ...'
     messageTwo.textContent=''
 
-    fetch('http://localhost:3000/weather?address='+ encodeURIComponent(o)).then((response)=>{
+    fetch('/weather?address='+ encodeURIComponent(o)).then((response)=>{
     response.json().then((data)=>{
     if(data.error){
         messageOne.textContent=data.error
